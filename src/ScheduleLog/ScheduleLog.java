@@ -9,9 +9,8 @@ public class ScheduleLog {
     private String operation;
     private boolean resultSchedule;
 
-    public ScheduleLog(int logId, String userName, Integer roomId, String date, int time, String operation,
+    public ScheduleLog(String userName, Integer roomId, String date, int time, String operation,
             boolean resultSchedule) {
-        setLogId(logId);
         setUserName(userName);
         setRoomId(roomId);
         setDate(date);

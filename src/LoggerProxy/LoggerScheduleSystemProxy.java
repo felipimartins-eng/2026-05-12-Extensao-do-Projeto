@@ -61,7 +61,7 @@ public class LoggerScheduleSystemProxy implements IScheduleSystem {
         boolean success = this.system.makeSchedule(user, roomId, date, time);
         ScheduleLogRepositoryAbstract db = this.getDataBase();
         this.saveScheduleLog(
-                new ScheduleLog(db.getNumLogs(), user.getName(), roomId, date, time, "TENTATIVA DE RESERVA", success));
+                new ScheduleLog(user.getName(), roomId, date, time, "TENTATIVA DE RESERVA", success));
         return success;
     }
 
@@ -69,7 +69,7 @@ public class LoggerScheduleSystemProxy implements IScheduleSystem {
     public boolean cancelSchedule(User user, Integer roomId, String date, int time) {
         boolean success = this.system.cancelSchedule(user, roomId, date, time);
         ScheduleLogRepositoryAbstract db = this.getDataBase();
-        this.saveScheduleLog(new ScheduleLog(db.getNumLogs(), user.getName(), roomId, date, time,
+        this.saveScheduleLog(new ScheduleLog(user.getName(), roomId, date, time,
                 "CANCELAMENTO DE RESERVA", success));
         return success;
     }
